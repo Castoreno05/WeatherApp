@@ -1,36 +1,36 @@
-main {
-    height: 100%;
-    font-size: 12px;
-}
 
-.head-container {
+.head-container{
     width: 100%;
-}
-
-.headerPanel {
-    height: 120px;
 }
 
 /* Displays the title in the center of the header */
 .title {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    text-align: center;
 }
 
 /* Add search container */
 .search-container {
     /* border: solid black 1px; */
-    height: 750px;
-    width: 300px;
-    margin-left: 20px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
 }
 
 /* Make the city panel high enough to append recent searches */
-.cityPanel {
-    height: 550px;
+.searchPanel {
+    height: 559px;
+    width: 300px;
 }
 
 .searchBtn {
     width: 250px;
+}
+
+.dataInfo {
+    width: 100vh;
+    margin-left: 20px;
+}
+
+.cityForecast {
+    height: 300px;
 }

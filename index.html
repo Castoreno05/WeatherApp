@@ -20,12 +20,8 @@
     <!-- Title in the center of the header -->
     <header>
         <div class="head-container">
-            <div class="row-header">
-                <div class="col s12 m6">
-                    <div class="card-panel white headerPanel">
-                        <h1 class="title">Weather Forecast</h1>
-                    </div>
-                </div>
+            <div class="card-panel white headerPanel">
+                <h1 class="title">Weather Forecast</h1>
             </div>
         </div>
     </header>
@@ -34,13 +30,33 @@
         <!-- Serach panel for finding a location -->
         <section class="search-container">
             <div class="col s12 m6">
-                <div class="card-panel white cityPanel">
+                <div class="card-panel white searchPanel">
                     <h1 class="search-title">Search for a City:</h1>
                     <input type="text" placeholder="Search city here">
-                    <a class="waves-effect waves-light btn searchBtn"><i class="material-icons left">search</i>search</a>
+                    <a class="waves-effect waves-light btn searchBtn"><i
+                            class="material-icons left">search</i>search</a>
                 </div>
             </div>
+            <section class="dataInfo">
+                <div class="row">
+                    <div class="card-panel white cityData">
+                        <h1 class="Data-title">City name</h1>
+                        <p>Temp:</p>
+                        <p>Wind:</p>
+                        <p>Humidity:</p>
+                        <p>UV Index:</p>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card-panel white cityForecast">
+                        
+
+                    </div>
+                </div>
+            </section>
         </section>
+
     </main>
 
 
