@@ -18,12 +18,13 @@
 
 /* Make the city panel high enough to append recent searches */
 .searchPanel {
-    height: 559px;
-    width: 300px;
+    height: 554px;
+    width: 250px;
+    font-size: 8px;
 }
 
 .searchBtn {
-    width: 250px;
+    width: 202px;
 }
 
 .dataInfo {
@@ -31,6 +32,32 @@
     margin-left: 20px;
 }
 
+.cityData p {
+    padding: 5px;
+}
+
 .cityForecast {
     height: 300px;
+    display: flex;
+    flex-direction: row;
+}
+
+.castContainer{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.forecastPanel{
+    display: flex;
+    flex-direction: row;
+}
+
+.forecastCards{
+    margin: 1px;
+    height: 300px;
+}
+
+.forecastCards p {
+    padding: 10px 0px;
 }
