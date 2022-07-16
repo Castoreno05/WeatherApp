@@ -2,14 +2,6 @@
 // api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}
 // http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
 
-// var testGeo = `https://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=${apiKey}`
-// Need an api for the current weather 
-// var currentWeather = `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
-
-
-
-
-
 //  API key 
 var apiKey = '40560cd406f9b5804909ab5d09157282'
 var lat;
@@ -29,19 +21,41 @@ function getLatLon() {
         .then(function (response) {
             return response.json();
         }).then(function (data) {
-            // console.log(data);
+            console.log(data);
             lat = data[0].lat
             lon = data[0].lon
             console.log("lat", data[0].lat);
             console.log("lon", data[0].lon);
+            currentForecast();
+            // currentWeather();
         })
+};
 
-    var forecast = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&appid=${apiKey}`
+function currentForecast() {
+
+    var forecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
 
     fetch(forecast)
         .then(function (response) {
             return response.json();
         }).then(function (data) {
+            console.log(data.list[0].weather[0].description);
+            console.log(data.list[0].main.temp);
             console.log(data);
-        })
+            // console.log(list[0].weather);
+        })  
 };
+
+
+// function currentWeather() {
+//     // Need an api for the current weather
+//     var currentWeather = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
+
+//     fetch(currentWeather)
+//         .then(function(response){
+//             return response.json();
+//         }).then(function(data){
+//             console.log(data);
+//         })
+
+// };
