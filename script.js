@@ -31,6 +31,7 @@ function getLatLon() {
         })
 };
 
+// function for the forecast
 function currentForecast() {
 
     var forecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
@@ -42,20 +43,20 @@ function currentForecast() {
             console.log(data.list[0].weather[0].description);
             console.log(data.list[0].main.temp);
             console.log(data);
-            // console.log(list[0].weather);
+            currentWeather();
         })  
 };
 
+// function for the current weather
+function currentWeather() {
+    // Need an api for the current weather
+    var currentWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
 
-// function currentWeather() {
-//     // Need an api for the current weather
-//     var currentWeather = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
-
-//     fetch(currentWeather)
-//         .then(function(response){
-//             return response.json();
-//         }).then(function(data){
-//             console.log(data);
-//         })
-
-// };
+    fetch(currentWeather)
+        .then(function(response){
+            return response.json();
+        }).then(function(data){
+            // console.log(data);
+            console.log(data.current.temp);
+        })
+};
