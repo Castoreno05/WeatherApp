@@ -26,27 +26,22 @@ function getLatLon() {
     var geoCodeApi = `https://api.openweathermap.org/geo/1.0/direct?q=${userSearch}&limit=5&appid=${apiKey}`
 
     fetch(geoCodeApi)
-        .then(function(response){
+        .then(function (response) {
             return response.json();
-        }).then(function(data){
+        }).then(function (data) {
             // console.log(data);
             lat = data[0].lat
             lon = data[0].lon
             console.log("lat", data[0].lat);
             console.log("lon", data[0].lon);
-            currentForecast();
         })
-};
-
-function currentForecast() {
 
     var forecast = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&appid=${apiKey}`
-    
+
     fetch(forecast)
-        .then(function(response){
+        .then(function (response) {
             return response.json();
-        }).then(function(data){
+        }).then(function (data) {
             console.log(data);
         })
 };
-
