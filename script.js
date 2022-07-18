@@ -7,6 +7,9 @@ var apiKey = 'b4bb042da0b34136546b6b70dc3bebe5'
 var lat;
 var lon;
 var temp;
+// Used to convert Kelvin to Fahrenheit
+var kelvin = 273.15;
+
 // Link the search button
 var searchButton = document.getElementById('searchButton');
 searchButton.addEventListener('click', getLatLon);
@@ -104,7 +107,6 @@ function renderCurrentWeather(data, cityName) {
     var temp = data.current.temp;
     var humi = data.current.humidity;
     // inject it to html
-    $(".cityData .temp").append(`Temp: ${temp}`);
     $(".cityData .wind").append(`Wind: ${windSpeed}`);
     $(".cityData .humi").append(`Humidity: ${humi}`);
     // uvi
@@ -122,6 +124,14 @@ function renderCurrentWeather(data, cityName) {
     uviEl.css("background-color", color);
     $(".cityData .uvi").text("UV Index: ").append(uviEl);
 
+    if(temp > 200){
+        var fahrenheitWD = (temp - kelvin) * 1.8 + 32;
+        // console.log(Math.floor(fahrenheit));
+        var fahrenheitWOD = Math.floor(fahrenheitWD);
+        // console.log(fahrenheit);
+        $(".cityData .temp").append(`Temp: ${fahrenheitWOD}`);
+    }
+    
 }
 
 function dayOne(data) {
@@ -141,10 +151,16 @@ function dayOne(data) {
     var temp = data.daily[1].temp.day;
     var humi = data.daily[1].humidity;
     // inject it to html
-    $(".firstDay .tempOne").append(`Temp: ${temp}`);
     $(".firstDay .windOne").append(`Wind Speed: ${windSpeed}`);
     $(".firstDay .humiOne").append(`Humidity: ${humi}`);
 
+    if(temp > 200){
+        var fahrenheitWD = (temp - kelvin) * 1.8 + 32;
+        // console.log(Math.floor(fahrenheit));
+        var fahrenheitWOD = Math.floor(fahrenheitWD);
+        // console.log(fahrenheit);
+        $(".firstDay .tempOne").append(`Temp: ${fahrenheitWOD}`);
+    }
 
 }
 
@@ -165,9 +181,16 @@ function dayTwo(data) {
     var temp = data.daily[2].temp.day;
     var humi = data.daily[2].humidity;
     // inject it to html
-    $(".secondDay .tempTwo").append(`Temp: ${temp}`);
     $(".secondDay .windTwo").append(`Wind Speed: ${windSpeed}`);
     $(".secondDay .humiTwo").append(`Humidity: ${humi}`);
+
+    if(temp > 200){
+        var fahrenheitWD = (temp - kelvin) * 1.8 + 32;
+        // console.log(Math.floor(fahrenheit));
+        var fahrenheitWOD = Math.floor(fahrenheitWD);
+        // console.log(fahrenheit);
+        $(".secondDay .tempTwo").append(`Temp: ${fahrenheitWOD}`);
+    }
 
 }
 
@@ -188,9 +211,16 @@ function dayThree(data) {
     var temp = data.daily[3].temp.day;
     var humi = data.daily[3].humidity;
     // inject it to html
-    $(".thirdDay .tempThree").append(`Temp: ${temp}`);
     $(".thirdDay .windThree").append(`Wind Speed: ${windSpeed}`);
     $(".thirdDay .humiThree").append(`Humidity: ${humi}`);
+
+    if(temp > 200){
+        var fahrenheitWD = (temp - kelvin) * 1.8 + 32;
+        // console.log(Math.floor(fahrenheit));
+        var fahrenheitWOD = Math.floor(fahrenheitWD);
+        // console.log(fahrenheit);
+        $(".thirdDay .tempThree").append(`Temp: ${fahrenheitWOD}`);
+    }
 
 }
 
@@ -211,9 +241,16 @@ function dayFour(data) {
     var temp = data.daily[4].temp.day;
     var humi = data.daily[4].humidity;
     // inject it to html
-    $(".fourthDay .tempFour").append(`Temp: ${temp}`);
     $(".fourthDay .windFour").append(`Wind Speed: ${windSpeed}`);
     $(".fourthDay .humiFour").append(`Humidity: ${humi}`);
+
+    if(temp > 200){
+        var fahrenheitWD = (temp - kelvin) * 1.8 + 32;
+        // console.log(Math.floor(fahrenheit));
+        var fahrenheitWOD = Math.floor(fahrenheitWD);
+        // console.log(fahrenheit);
+        $(".fourthDay .tempFour").append(`Temp: ${fahrenheitWOD}`);
+    }
 }
 
 function dayFive(data) {
@@ -233,7 +270,14 @@ function dayFive(data) {
     var temp = data.daily[5].temp.day;
     var humi = data.daily[5].humidity;
     // inject it to html
-    $(".fifthDay .tempFive").append(`Temp: ${temp}`);
     $(".fifthDay .windFive").append(`Wind Speed: ${windSpeed}`);
     $(".fifthDay .humiFive").append(`Humidity: ${humi}`);
+
+    if(temp > 200){
+        var fahrenheitWD = (temp - kelvin) * 1.8 + 32;
+        // console.log(Math.floor(fahrenheit));
+        var fahrenheitWOD = Math.floor(fahrenheitWD);
+        // console.log(fahrenheit);
+        $(".fifthDay .tempFive").append(`Temp: ${fahrenheitWOD}`);
+    }
 }
