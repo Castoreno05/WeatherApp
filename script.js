@@ -29,6 +29,16 @@ function getLatLon() {
             // currentForecast();
             currentWeather(data[0].name);
         })
+
+        localStorage.setItem(userSearch, geoCodeApi);
+        
+        var recentSearched = $("<a>").attr("class", "waves-effect waves-light btn recentBtn")
+
+        $("#searchPanel").append(recentSearched);
+        $(".recentBtn").text(userSearch);
+        // $(".recentBtn").empty();
+
+
 };
 
 // function for the current weather
@@ -37,9 +47,9 @@ function currentWeather(cityName) {
     var currentWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`
 
     fetch(currentWeather)
-        .then(function(response){
+        .then(function (response) {
             return response.json();
-        }).then(function(data){
+        }).then(function (data) {
             console.log(data);
             // Need wind speed
             // console.log(data.daily[0].temp.day);
@@ -55,7 +65,7 @@ function currentWeather(cityName) {
             dayFive(data);
         })
 
-    
+
 };
 
 
@@ -115,7 +125,7 @@ function dayOne(data) {
     var humi = data.daily[1].humidity;
     // inject it to html
     $(".firstDay .tempOne").append(`Temp: ${temp}`);
-    $(".firstDay .windOne").append(`Wind: ${windSpeed}`);
+    $(".firstDay .windOne").append(`Wind Speed: ${windSpeed}`);
     $(".firstDay .humiOne").append(`Humidity: ${humi}`);
 
 
@@ -139,14 +149,14 @@ function dayTwo(data) {
     var humi = data.daily[2].humidity;
     // inject it to html
     $(".secondDay .tempTwo").append(`Temp: ${temp}`);
-    $(".secondDay .windTwo").append(`Wind: ${windSpeed}`);
+    $(".secondDay .windTwo").append(`Wind Speed: ${windSpeed}`);
     $(".secondDay .humiTwo").append(`Humidity: ${humi}`);
 
 }
 
 function dayThree(data) {
 
-    $(".thirdDay .timeThree").empty();
+    $(".thirdDay .tempThree").empty();
     $(".thirdDay .windThree").empty();
     $(".thirdDay .humiThree").empty();
 
@@ -162,14 +172,14 @@ function dayThree(data) {
     var humi = data.daily[3].humidity;
     // inject it to html
     $(".thirdDay .tempThree").append(`Temp: ${temp}`);
-    $(".thirdDay .windThree").append(`Wind: ${windSpeed}`);
+    $(".thirdDay .windThree").append(`Wind Speed: ${windSpeed}`);
     $(".thirdDay .humiThree").append(`Humidity: ${humi}`);
 
 }
 
 function dayFour(data) {
 
-    $(".fourthDay .timeFour").empty();
+    $(".fourthDay .tempFour").empty();
     $(".fourthDay .windFour").empty();
     $(".fourthDay .humiFour").empty();
 
@@ -185,13 +195,13 @@ function dayFour(data) {
     var humi = data.daily[4].humidity;
     // inject it to html
     $(".fourthDay .tempFour").append(`Temp: ${temp}`);
-    $(".fourthDay .windFour").append(`Wind: ${windSpeed}`);
+    $(".fourthDay .windFour").append(`Wind Speed: ${windSpeed}`);
     $(".fourthDay .humiFour").append(`Humidity: ${humi}`);
 }
 
 function dayFive(data) {
     // Used so the text does not reappend when search is clicked
-    $(".fifthDay .timeFive").empty();
+    $(".fifthDay .tempFive").empty();
     $(".fifthDay .windFive").empty();
     $(".fifthDay .humiFive").empty();
 
@@ -207,6 +217,6 @@ function dayFive(data) {
     var humi = data.daily[5].humidity;
     // inject it to html
     $(".fifthDay .tempFive").append(`Temp: ${temp}`);
-    $(".fifthDay .windFive").append(`Wind: ${windSpeed}`);
+    $(".fifthDay .windFive").append(`Wind Speed: ${windSpeed}`);
     $(".fifthDay .humiFive").append(`Humidity: ${humi}`);
 }
