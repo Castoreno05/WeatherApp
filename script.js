@@ -3,13 +3,26 @@
 // http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
 
 //  API key 
-var apiKey = '40560cd406f9b5804909ab5d09157282'
+var apiKey = 'b4bb042da0b34136546b6b70dc3bebe5'
 var lat;
 var lon;
 var temp;
 // Link the search button
 var searchButton = document.getElementById('searchButton');
 searchButton.addEventListener('click', getLatLon);
+
+function reusedBtn(geoCodeApi){
+    fetch(geoCodeApi)
+        .then(function(response){
+            return response.json();
+        }).then(function(data){
+            console.log(data);
+            lat = data[0].lat
+            lon = data[0].lon
+            currentWeather(data[0].name);
+        })
+
+};
 
 function getLatLon() {
     // Create variables for information from user input
@@ -18,7 +31,7 @@ function getLatLon() {
     var geoCodeApi = `https://api.openweathermap.org/geo/1.0/direct?q=${userSearch}&limit=5&appid=${apiKey}`
 
     fetch(geoCodeApi)
-        .then(function (response) {
+        .then(function(response) {
             return response.json();
         }).then(function (data) {
             // console.log(data);
@@ -36,7 +49,9 @@ function getLatLon() {
         
         recentBtn.textContent = userSearch;
         recentBtn.setAttribute("class", "waves-effect waves-light btn recentBtn");
-
+        recentBtn.addEventListener("click", function(){
+            reusedBtn(userSearch)
+        });
         document.getElementById("searchPanel").appendChild(recentBtn);
         
 
