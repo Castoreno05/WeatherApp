@@ -31,12 +31,14 @@ function getLatLon() {
         })
 
         localStorage.setItem(userSearch, geoCodeApi);
-        
-        var recentSearched = $("<a>").attr("class", "waves-effect waves-light btn recentBtn")
 
-        $("#searchPanel").append(recentSearched);
-        $(".recentBtn").text(userSearch);
-        // $(".recentBtn").empty();
+        var recentBtn = document.createElement("button");
+        
+        recentBtn.textContent = userSearch;
+        recentBtn.setAttribute("class", "waves-effect waves-light btn recentBtn");
+
+        document.getElementById("searchPanel").appendChild(recentBtn);
+        
 
 
 };

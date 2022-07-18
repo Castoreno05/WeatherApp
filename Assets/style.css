@@ -27,6 +27,11 @@
     width: 202px;
 }
 
+.recentBtn {
+   width: 202px;
+   margin-top: 10px;
+}
+
 .dataInfo {
     margin-left: 20px;
 }
