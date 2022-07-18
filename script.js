@@ -11,7 +11,10 @@ var temp;
 var searchButton = document.getElementById('searchButton');
 searchButton.addEventListener('click', getLatLon);
 
-function reusedBtn(geoCodeApi){
+function reusedBtn(userSearch){
+
+    var geoCodeApi = `https://api.openweathermap.org/geo/1.0/direct?q=${userSearch}&limit=5&appid=${apiKey}`
+    
     fetch(geoCodeApi)
         .then(function(response){
             return response.json();
@@ -53,9 +56,6 @@ function getLatLon() {
             reusedBtn(userSearch)
         });
         document.getElementById("searchPanel").appendChild(recentBtn);
-        
-
-
 };
 
 // function for the current weather
