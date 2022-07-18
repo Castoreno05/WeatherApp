@@ -14,7 +14,7 @@ searchButton.addEventListener('click', getLatLon);
 function reusedBtn(userSearch){
 
     var geoCodeApi = `https://api.openweathermap.org/geo/1.0/direct?q=${userSearch}&limit=5&appid=${apiKey}`
-    
+
     fetch(geoCodeApi)
         .then(function(response){
             return response.json();
@@ -51,7 +51,7 @@ function getLatLon() {
         var recentBtn = document.createElement("button");
         
         recentBtn.textContent = userSearch;
-        recentBtn.setAttribute("class", "waves-effect waves-light btn recentBtn");
+        recentBtn.setAttribute("class", "waves-effect waves-light grey btn recentBtn");
         recentBtn.addEventListener("click", function(){
             reusedBtn(userSearch)
         });

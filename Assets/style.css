@@ -6,6 +6,8 @@
 /* Displays the title in the center of the header */
 .title {
     text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 50px;
 }
 
 /* Add search container */
@@ -20,7 +22,7 @@
 .searchPanel {
     height: 554px;
     width: 250px;
-    font-size: 8px;
+    font-size: 14px !important;
 }
 
 .searchBtn {
@@ -36,8 +38,15 @@
     margin-left: 20px;
 }
 
+
+.card-panel{
+    background-color: #9DC5BB;
+    font-size: 18px;
+}
+
 .cityData p {
     padding: 5px;
+    font-size: 20 px;
 }
 
 .cityForecast {
