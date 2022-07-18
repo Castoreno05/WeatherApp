@@ -21,31 +21,15 @@ function getLatLon() {
         .then(function (response) {
             return response.json();
         }).then(function (data) {
-            console.log(data);
+            // console.log(data);
             lat = data[0].lat
             lon = data[0].lon
-            console.log("lat", data[0].lat);
-            console.log("lon", data[0].lon);
+            // console.log("lat", data[0].lat);
+            // console.log("lon", data[0].lon);
             // currentForecast();
             currentWeather(data[0].name);
         })
 };
-
-// function for the forecast
-// function currentForecast() {
-//     // Need an api for a 5 day forecast
-//     var forecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
-
-//     fetch(forecast)
-//         .then(function (response) {
-//             return response.json();
-//         }).then(function (data) {
-//             console.log(data.list[0].weather[0].description);
-//             console.log(data.list[0].main.temp);
-//             console.log(data);
-//             currentWeather();
-//         })  
-// };
 
 // function for the current weather
 function currentWeather(cityName) {
@@ -56,10 +40,19 @@ function currentWeather(cityName) {
         .then(function(response){
             return response.json();
         }).then(function(data){
-            // console.log(data);
-            console.log(data.current.temp);
+            console.log(data);
+            // Need wind speed
+            // console.log(data.daily[0].temp.day);
+            // Need humidity
+            // console.log(data.current.humidity);
+            // Need the current temp
+            // console.log(data.current.temp);    
             renderCurrentWeather(data, cityName)
-            renderForecast(data)
+            dayOne(data);
+            dayTwo(data);
+            dayThree(data);
+            dayFour(data);
+            dayFive(data);
         })
 
     
@@ -70,6 +63,8 @@ function renderCurrentWeather(data, cityName) {
     // clear all fields
     $(".cityData .temp").empty();
     $(".cityData .uvi").empty();
+    $(".cityData .wind").empty();
+    $(".cityData .humi").empty();
     // title - cityName, date, icon
     var iconURL = `http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
     //document.createElement("img")
@@ -78,10 +73,13 @@ function renderCurrentWeather(data, cityName) {
     $("#dataTitle").text(`${cityName} (${dateString})`)
     $("#dataTitle").append(iconEl)
     // extract data from response
+    var windSpeed = data.daily[0].wind_speed;
     var temp = data.current.temp;
+    var humi = data.current.humidity;
     // inject it to html
     $(".cityData .temp").append(`Temp: ${temp}`);
-
+    $(".cityData .wind").append(`Wind: ${windSpeed}`);
+    $(".cityData .humi").append(`Humidity: ${humi}`);
     // uvi
     var uviEl = $("<span>").text(data.current.uvi);
     var color = "red";
@@ -99,13 +97,116 @@ function renderCurrentWeather(data, cityName) {
 
 }
 
-function renderForecast(data) {
-    // for loop - 1 <= 5 on data.daily
+function dayOne(data) {
+
+    $(".firstDay .tempOne").empty();
+    $(".firstDay .windOne").empty();
+    $(".firstDay .humiOne").empty();
+
+    var iconURL = `http://openweathermap.org/img/wn/${data.daily[1].weather[0].icon}.png`
+    var iconOne = $("<img>").attr("src", iconURL);
+    var dateOne = moment.unix(data.daily[1].dt).format("MM/DD/YYYY");
+
+    $("#currentDayOne").text(`${dateOne}`)
+    $("#currentDayOne").append(iconOne)
+
+    var windSpeed = data.daily[1].wind_speed;
+    var temp = data.daily[1].temp.day;
+    var humi = data.daily[1].humidity;
+    // inject it to html
+    $(".firstDay .tempOne").append(`Temp: ${temp}`);
+    $(".firstDay .windOne").append(`Wind: ${windSpeed}`);
+    $(".firstDay .humiOne").append(`Humidity: ${humi}`);
+
+
 }
 
-// function appendage() {
+function dayTwo(data) {
 
-//     var dataTitle = document.getElementById("dataTitle")
+    $(".secondDay .tempTwo").empty();
+    $(".secondDay .windTwo").empty();
+    $(".secondDay .humiTwo").empty();
 
-//     var currentTemp = temp;
-// }
+    var iconURL = `http://openweathermap.org/img/wn/${data.daily[2].weather[0].icon}.png`
+    var iconOne = $("<img>").attr("src", iconURL);
+    var dateTwo = moment.unix(data.daily[2].dt).format("MM/DD/YYYY");
+
+    $("#currentDayTwo").text(`${dateTwo}`)
+    $("#currentDayTwo").append(iconOne)
+
+    var windSpeed = data.daily[2].wind_speed;
+    var temp = data.daily[2].temp.day;
+    var humi = data.daily[2].humidity;
+    // inject it to html
+    $(".secondDay .tempTwo").append(`Temp: ${temp}`);
+    $(".secondDay .windTwo").append(`Wind: ${windSpeed}`);
+    $(".secondDay .humiTwo").append(`Humidity: ${humi}`);
+
+}
+
+function dayThree(data) {
+
+    $(".thirdDay .timeThree").empty();
+    $(".thirdDay .windThree").empty();
+    $(".thirdDay .humiThree").empty();
+
+    var iconURL = `http://openweathermap.org/img/wn/${data.daily[3].weather[0].icon}.png`
+    var iconOne = $("<img>").attr("src", iconURL);
+    var dateTwo = moment.unix(data.daily[3].dt).format("MM/DD/YYYY");
+
+    $("#currentDayThree").text(`${dateTwo}`)
+    $("#currentDayThree").append(iconOne)
+
+    var windSpeed = data.daily[3].wind_speed;
+    var temp = data.daily[3].temp.day;
+    var humi = data.daily[3].humidity;
+    // inject it to html
+    $(".thirdDay .tempThree").append(`Temp: ${temp}`);
+    $(".thirdDay .windThree").append(`Wind: ${windSpeed}`);
+    $(".thirdDay .humiThree").append(`Humidity: ${humi}`);
+
+}
+
+function dayFour(data) {
+
+    $(".fourthDay .timeFour").empty();
+    $(".fourthDay .windFour").empty();
+    $(".fourthDay .humiFour").empty();
+
+    var iconURL = `http://openweathermap.org/img/wn/${data.daily[4].weather[0].icon}.png`
+    var iconOne = $("<img>").attr("src", iconURL);
+    var dateTwo = moment.unix(data.daily[4].dt).format("MM/DD/YYYY");
+
+    $("#currentDayFour").text(`${dateTwo}`)
+    $("#currentDayFour").append(iconOne)
+
+    var windSpeed = data.daily[4].wind_speed;
+    var temp = data.daily[4].temp.day;
+    var humi = data.daily[4].humidity;
+    // inject it to html
+    $(".fourthDay .tempFour").append(`Temp: ${temp}`);
+    $(".fourthDay .windFour").append(`Wind: ${windSpeed}`);
+    $(".fourthDay .humiFour").append(`Humidity: ${humi}`);
+}
+
+function dayFive(data) {
+    // Used so the text does not reappend when search is clicked
+    $(".fifthDay .timeFive").empty();
+    $(".fifthDay .windFive").empty();
+    $(".fifthDay .humiFive").empty();
+
+    var iconURL = `http://openweathermap.org/img/wn/${data.daily[5].weather[0].icon}.png`
+    var iconOne = $("<img>").attr("src", iconURL);
+    var dateTwo = moment.unix(data.daily[5].dt).format("MM/DD/YYYY");
+
+    $("#currentDayFive").text(`${dateTwo}`)
+    $("#currentDayFive").append(iconOne)
+
+    var windSpeed = data.daily[5].wind_speed;
+    var temp = data.daily[5].temp.day;
+    var humi = data.daily[5].humidity;
+    // inject it to html
+    $(".fifthDay .tempFive").append(`Temp: ${temp}`);
+    $(".fifthDay .windFive").append(`Wind: ${windSpeed}`);
+    $(".fifthDay .humiFive").append(`Humidity: ${humi}`);
+}

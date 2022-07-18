@@ -52,12 +52,52 @@
     flex-direction: row;
 }
 
-.forecastCards{
+.firstDay{
     margin: 1px;
     height: 270px;
     width: 185px;
 }
 
-.forecastCards p {
+.firstDay p {
+    padding: 10px 0px;
+}
+
+.secondDay{
+    margin: 1px;
+    height: 270px;
+    width: 185px;
+}
+
+.secondDay p {
+    padding: 10px 0px;
+}
+
+.thirdDay{
+    margin: 1px;
+    height: 270px;
+    width: 185px;
+}
+
+.thirdDay p {
+    padding: 10px 0px;
+}
+
+.fourthDay{
+    margin: 1px;
+    height: 270px;
+    width: 185px;
+}
+
+.fourthDay p {
+    padding: 10px 0px;
+}
+
+.fifthDay{
+    margin: 1px;
+    height: 270px;
+    width: 185px;
+}
+
+.fifthDay p {
     padding: 10px 0px;
 }
