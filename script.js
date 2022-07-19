@@ -22,7 +22,7 @@ function reusedBtn(userSearch){
         .then(function(response){
             return response.json();
         }).then(function(data){
-            console.log(data);
+            // console.log(data);
             lat = data[0].lat
             lon = data[0].lon
             currentWeather(data[0].name);
@@ -70,7 +70,7 @@ function currentWeather(cityName) {
         .then(function (response) {
             return response.json();
         }).then(function (data) {
-            console.log(data);
+            // console.log(data);
             // Need wind speed
             // console.log(data.daily[0].temp.day);
             // Need humidity
@@ -132,7 +132,7 @@ function renderCurrentWeather(data, cityName) {
         $(".cityData .temp").append(`Temp: ${fahrenheitWOD}`);
     }
     
-}
+};
 
 function dayOne(data) {
 
@@ -162,7 +162,7 @@ function dayOne(data) {
         $(".firstDay .tempOne").append(`Temp: ${fahrenheitWOD}`);
     }
 
-}
+};
 
 function dayTwo(data) {
 
@@ -192,7 +192,7 @@ function dayTwo(data) {
         $(".secondDay .tempTwo").append(`Temp: ${fahrenheitWOD}`);
     }
 
-}
+};
 
 function dayThree(data) {
 
@@ -222,7 +222,7 @@ function dayThree(data) {
         $(".thirdDay .tempThree").append(`Temp: ${fahrenheitWOD}`);
     }
 
-}
+};
 
 function dayFour(data) {
 
@@ -251,7 +251,7 @@ function dayFour(data) {
         // console.log(fahrenheit);
         $(".fourthDay .tempFour").append(`Temp: ${fahrenheitWOD}`);
     }
-}
+};
 
 function dayFive(data) {
     // Used so the text does not reappend when search is clicked
@@ -280,4 +280,4 @@ function dayFive(data) {
         // console.log(fahrenheit);
         $(".fifthDay .tempFive").append(`Temp: ${fahrenheitWOD}`);
     }
-}
+};
