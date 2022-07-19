@@ -16,7 +16,7 @@ under the search button. Use these buttons as shortcuts to view recently searche
 
 ---
 
-#Tools Used
+# Tools Used
 
 * Materialize
 * Google Fonts
@@ -25,13 +25,13 @@ under the search button. Use these buttons as shortcuts to view recently searche
 
 ---
 
-#Demo
+# Demo
 
 Demo for the WeatherApp https://castoreno05.github.io/WorkDayPlanner/
 
 ---
 
-#Contributor
+# Contributor
 
 Matthew Castoreno <matthew.castoreno@yahoo.com>
 
