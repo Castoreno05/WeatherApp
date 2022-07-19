@@ -27,7 +27,7 @@ under the search button. Use these buttons as shortcuts to view recently searche
 
 # Demo
 
-Demo for the WeatherApp https://castoreno05.github.io/WorkDayPlanner/
+Demo for the WeatherApp https://castoreno05.github.io/WeatherApp/
 
 ---
 
