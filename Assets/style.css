@@ -20,7 +20,7 @@
 
 /* Make the city panel high enough to append recent searches */
 .searchPanel {
-    height: 554px;
+    height: 509px;
     width: 250px;
     font-size: 14px !important;
 }
