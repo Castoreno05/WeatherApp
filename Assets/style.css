@@ -26,6 +26,7 @@
 }
 
 .searchBtn {
+    background-color: #27476E;
     width: 202px;
 }
 
@@ -40,7 +41,7 @@
 
 
 .card-panel{
-    background-color: #9DC5BB;
+    background-color: #DFCFBE;
     font-size: 18px;
 }
 
